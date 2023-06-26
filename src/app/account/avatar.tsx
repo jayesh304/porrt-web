@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Database } from "../../lib/database.types";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import supabase from "@/supabase";
 import Image from "next/image";
 type Profiles = Database["public"]["Tables"]["profiles"]["Row"];
 
@@ -16,7 +16,6 @@ export default function Avatar({
   size: number;
   onUpload: (url: string) => void;
 }) {
-  const supabase = createClientComponentClient<Database>();
   const [avatarUrl, setAvatarUrl] = useState<Profiles["avatar_url"]>(url);
   const [uploading, setUploading] = useState(false);
 
