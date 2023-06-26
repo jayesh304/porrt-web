@@ -137,7 +137,7 @@ const AccountForm = () => {
               Photo
             </label>
             <Avatar
-              uid={user?.id}
+              uid={user?.id!}
               url={avatar_url}
               size={84}
               onUpload={(url) => {

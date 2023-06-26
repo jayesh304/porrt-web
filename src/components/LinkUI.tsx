@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ILinkItem } from "@/lib/profile.types";
+import supabase from "@/supabase";
 
 const LinkUI = ({
   link,
@@ -14,7 +14,6 @@ const LinkUI = ({
   onChange: (...args: any) => void;
   onUpdate: (...args: any) => void;
 }) => {
-  const supabase = createClientComponentClient();
   const [avatarUrl, setAvatarUrl] = useState<any | null>(null);
 
   async function deleteLink() {

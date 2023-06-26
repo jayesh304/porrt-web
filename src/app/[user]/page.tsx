@@ -176,7 +176,7 @@ const UserPage = ({ params }: { params: any }) => {
                 return (
                   <LinkUI
                     link={ele}
-                    user_id={user?.id}
+                    user_id={user?.id!}
                     key={ele?.id}
                     onChange={() => fetchLinks()}
                     onUpdate={(link) => setLink(link)}

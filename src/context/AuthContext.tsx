@@ -17,7 +17,7 @@ type IAuth = {
   session: Session | null | undefined;
   signOut: () => void;
 };
-const AuthContext = createContext<IAuth | null>({
+const AuthContext = createContext<IAuth>({
   session: null,
   user: null,
   signOut: () => {},
@@ -75,5 +75,6 @@ export const AuthContextProvider = ({
 };
 
 export const useAuth = () => {
-  return useContext(AuthContext);
+  const { user, session, signOut } = useContext<IAuth>(AuthContext);
+  return { user, session, signOut };
 };

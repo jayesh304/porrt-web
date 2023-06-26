@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+import supabase from "@/supabase";
 import { ILinkItem } from "@/lib/profile.types";
 
 const AddLinkUI = ({
@@ -11,7 +11,6 @@ const AddLinkUI = ({
   link: ILinkItem;
   onChange: (...args: any) => void;
 }) => {
-  let supabase = createClientComponentClient();
   const [loading, setLoading] = useState(false);
   const [showAddUI, setShowAddUI] = useState(false);
   const [linkData, setLinkData] = useState<ILinkItem | null>(link);
